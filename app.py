@@ -1,3 +1,32 @@
+def add_item():
+    """
+    Adding a new sports item to the list
+    User is directed to sports_menu whether the item is
+    added successfully or not.
+    """
+
+    # Add item banner
+    add_banner = """
++++++==============================+++++
++              ADD ITEM                +
++--------------------------------------+
++   SPORTS GEAR, CLOTHES, EQUIPMENT    +
++++++==============================+++++
+
+Kindly input the details for the item below:
+    """
+
+    print(add_banner)
+
+    # Prompt the manager for item details
+    item_id = int(input("Enter the item ID: "))
+    item_name = input("Enter the item name: ")
+    item_category = input("Enter the item category: ")
+    item_purchase_date = input("Enter the item purchase date: ")
+    item_price = int(input("Enter the unit price of the item: "))
+    item_quantity = int(input("Enter the quantity of item: "))
+
+
 def sports_menu():
     """
     Sports menu is displayed here for adding, updating, deleting and
@@ -19,10 +48,14 @@ What would you like to do:
 4. Display items.
 """
     print(sports_banner)
+
+    # Prompt user for a choice
     user_choice = int(input())
 
+    # Validate user choice
     if user_choice == 1:
-        print("Adding a new item.")
+        print("Adding a new item...")
+        add_item()
     elif user_choice == 2:
         print("Updating an item.")
     elif user_choice == 3:
@@ -53,7 +86,6 @@ Fill in your email address and password below:
     print(login_banner)
 
     # Prompt user for email address and password
-
     email_address = input("Enter your email address: ")
     password = input("Enter your password: ")
 
@@ -116,6 +148,7 @@ Select from the main menu:
 3. Exit
     """
     print(menu)
+
     # Prompt user for input
     user_choice = int(input())
 
