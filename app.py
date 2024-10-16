@@ -1,3 +1,38 @@
+def sports_menu():
+    """
+    Sports menu is displayed here for adding, updating, deleting and
+    viewing sports equipment.
+    """
+
+    # Sports banner
+    sports_banner = """
++++++==============================+++++
++            SPORTS MENU               +
++--------------------------------------+
++   SPORTS GEAR, CLOTHES, EQUIPMENT    +
++++++==============================+++++
+
+What would you like to do:
+1. Add a new item.
+2. Update an existing item.
+3. Delete an item.
+4. Display items.
+"""
+    print(sports_banner)
+    user_choice = int(input())
+
+    if user_choice == 1:
+        print("Adding a new item.")
+    elif user_choice == 2:
+        print("Updating an item.")
+    elif user_choice == 3:
+        print("Deleting an item.")
+    elif user_choice == 4:
+        print("Displaying an item.")
+    else:
+        print("Invalid choice. Please enter a correct choice.")
+
+
 def login_page():
     """
     User login page for their credentials: email address and password.
@@ -10,7 +45,7 @@ def login_page():
 +             LOGIN PAGE               +
 +--------------------------------------+
 +ALready have an account? Sign in here.+
-+++++=========================++++++++++
++++++==============================+++++
 
 Fill in your email address and password below:
 """
@@ -34,7 +69,6 @@ Fill in your email address and password below:
         main()
 
 
-
 def registration_page():
     """
     User registration page for their details.
@@ -46,7 +80,7 @@ def registration_page():
 +          REGISTRATION PAGE           +
 +--------------------------------------+
 +Don't have an account? Create one here+
-+++++=========================++++++++++
++++++==============================+++++
 
 Fill in the necessary details below:
 """
@@ -61,7 +95,7 @@ Fill in the necessary details below:
     phone_number = int(input("Enter your phone number: "))
 
     # Welcoming new user
-    print(f"TRegistration successful. Welcome {manager_name} to Athloverse.")
+    print(f"Registration successful. Welcome {manager_name} to Athloverse.")
 
     # Redirect to main page
     print("Redirecting to main page...")
@@ -91,7 +125,7 @@ Select from the main menu:
     elif user_choice == 2:
         login_page()
     elif user_choice == 3:
-        pass
+        sports_menu()
     else:
         print("Invalid choice. Please enter a correct choice.")
         main()
