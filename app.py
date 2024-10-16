@@ -1,3 +1,40 @@
+def login_page():
+    """
+    User login page for their credentials: email address and password.
+    Redirects user to sports menu page.
+    """
+
+    # Login banner
+    login_banner = """
++++++==============================+++++
++             LOGIN PAGE               +
++--------------------------------------+
++ALready have an account? Sign in here.+
++++++=========================++++++++++
+
+Fill in your email address and password below:
+"""
+
+    print(login_banner)
+
+    # Prompt user for email address and password
+
+    email_address = input("Enter your email address: ")
+    password = input("Enter your password: ")
+
+    # Verify email address and password
+    if email_address == "linet@gmail.com" and password == '12345':
+        # Redirect user to menu page
+        print("Log in successful.")
+        sports_menu()
+    else:
+        print("You entered the wrong details. Please try again.")
+
+        # Redirect user to main page upon unsuccessful login
+        main()
+
+
+
 def registration_page():
     """
     User registration page for their details.
@@ -52,7 +89,7 @@ Select from the main menu:
     if user_choice == 1:
         registration_page()
     elif user_choice == 2:
-        pass
+        login_page()
     elif user_choice == 3:
         pass
     else:
