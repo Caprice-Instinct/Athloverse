@@ -27,6 +27,54 @@ Kindly input the details for the item below:
     item_quantity = int(input("Enter the quantity of item: "))
 
 
+def update_item():
+    """
+    Making changes to item details of existing items.
+    Manager redirected to menu page upon update.
+    :param item: It is an existing item whose details will be changed
+    """
+
+    # Update banner
+    update_banner = """
++++++==============================+++++
++            UPDATE ITEM               +
++--------------------------------------+
++   SPORTS GEAR, CLOTHES, EQUIPMENT    +
++++++==============================+++++
+"""
+
+    print(update_banner)
+
+    # Display items
+
+    # Prompt user to choose item to update
+    item_to_update = int(input("Which item would you like to update? "))
+
+
+def delete_item(item):
+    """
+    Deleting an existing item from stock.
+    Manager is directed to menu page after deletion.
+    :param item: Item in stock to be deleted
+    """
+
+    # Delete banner
+    delete_banner = """
++++++==============================+++++
++           DELETE ITEM                +
++--------------------------------------+
++   SPORTS GEAR, CLOTHES, EQUIPMENT    +
++++++==============================+++++
+    """
+
+    print(delete_banner)
+
+    # Display all existing items
+
+    # Prompt user to choose item to delete
+    item_to_delete = int(input("Which item would you like to delete? "))
+
+
 def sports_menu():
     """
     Sports menu is displayed here for adding, updating, deleting and
@@ -58,8 +106,10 @@ What would you like to do:
         add_item()
     elif user_choice == 2:
         print("Updating an item.")
+        update_item()
     elif user_choice == 3:
         print("Deleting an item.")
+        delete_item()
     elif user_choice == 4:
         print("Displaying an item.")
     else:
