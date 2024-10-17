@@ -1,3 +1,24 @@
+def display_items():
+    """
+    Display existing items in stock
+    :return: Items in stock
+    """
+
+    # Display banner
+    display_banner = """
++++++==============================+++++
++           DISPLAY ITEMS              +
++--------------------------------------+
++   SPORTS GEAR, CLOTHES, EQUIPMENT    +
++++++==============================+++++
+
+The following are the items in stock:
+
+    """
+
+    print(display_banner)
+
+
 def add_item():
     """
     Adding a new sports item to the list
@@ -26,6 +47,9 @@ Kindly input the details for the item below:
     item_price = int(input("Enter the unit price of the item: "))
     item_quantity = int(input("Enter the quantity of item: "))
 
+    # Redirection to menu page
+    sports_menu()
+
 
 def update_item():
     """
@@ -46,7 +70,7 @@ def update_item():
     print(update_banner)
 
     # Display items
-
+    display_items()
     # Prompt user to choose item to update
     item_to_update = int(input("Which item would you like to update? "))
 
@@ -70,7 +94,7 @@ def delete_item(item):
     print(delete_banner)
 
     # Display all existing items
-
+    display_items()
     # Prompt user to choose item to delete
     item_to_delete = int(input("Which item would you like to delete? "))
 
@@ -111,9 +135,11 @@ What would you like to do:
         print("Deleting an item.")
         delete_item()
     elif user_choice == 4:
-        print("Displaying an item.")
+        print("Displaying items in stock.")
+        display_items()
     else:
         print("Invalid choice. Please enter a correct choice.")
+        sports_menu()
 
 
 def login_page():
