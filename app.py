@@ -1,24 +1,3 @@
-def display_items():
-    """
-    Display existing items in stock
-    :return: Items in stock
-    """
-
-    # Display banner
-    display_banner = """
-+++++==============================+++++
-+           DISPLAY ITEMS              +
-+--------------------------------------+
-+   SPORTS GEAR, CLOTHES, EQUIPMENT    +
-+++++==============================+++++
-
-The following are the items in stock:
-
-    """
-
-    print(display_banner)
-
-
 def add_item():
     """
     Adding a new sports item to the list
@@ -39,15 +18,32 @@ Kindly input the details for the item below:
 
     print(add_banner)
 
-    # Prompt the manager for item details
-    item_id = int(input("Enter the item ID: "))
-    item_name = input("Enter the item name: ")
-    item_category = input("Enter the item category: ")
-    item_purchase_date = input("Enter the item purchase date: ")
-    item_price = int(input("Enter the unit price of the item: "))
-    item_quantity = int(input("Enter the quantity of item: "))
+    # Prompt user for number of items to be added
+    items = int(input("How many items do you want to add? "))
 
-    # Redirection to menu page
+    if items < 0:
+        # Display error message
+        print("No negative values.")
+
+        # Redirect back to add sport item
+    else:
+        pass
+
+    for item in range(items):
+        # Prompt user for item details
+        item_id = int(input("Enter the item ID: "))
+        item_name = input("Enter the item name: ")
+        item_category = input("Enter the item category: ")
+        item_purchase_date = input("Enter the item purchase date: ")
+        item_price = float(input("Enter the unit price of the item: "))
+        item_quantity = int(input("Enter the quantity of item: "))
+
+        # TODO : Save data
+
+        # Success message
+        print(f"{item_name} added successfully.")
+
+    # Redirect to menu page
     sports_menu()
 
 
@@ -55,7 +51,6 @@ def update_item():
     """
     Making changes to item details of existing items.
     Manager redirected to menu page upon update.
-    :param item: It is an existing item whose details will be changed
     """
 
     # Update banner
@@ -99,6 +94,69 @@ def delete_item(item):
     item_to_delete = int(input("Which item would you like to delete? "))
 
 
+def display_items():
+    """
+    Display existing items in stock
+    :return: Items in stock
+    """
+
+    # Display banner
+    display_banner = """
++++++==============================+++++
++           DISPLAY ITEMS              +
++--------------------------------------+
++   SPORTS GEAR, CLOTHES, EQUIPMENT    +
++++++==============================+++++
+
+The following are the items in stock:
+
+    """
+
+    print(display_banner)
+
+
+def logout():
+    """
+    Logs out the user
+    """
+    user_choice = input("Are you sure you want to exit? (Y/N): ")
+
+    if user_choice == "Y" or user_choice == "y":
+        # Success message upon logout
+        print("Log out successful. Redirecting to login page...")
+
+        # Redirect to login page
+        login_page()
+
+    else:
+        # Display redirect message
+        print("Redirecting to the sports menu page...")
+
+        # Redirect user to the main menu
+        sports_menu()
+
+
+def exit_sports_menu():
+    """
+    Allows user to exit the sports menu to main menu
+    """
+    user_choice = input("Are you sure you want to exit? (Y/N): ")
+
+    if user_choice == "Y" or user_choice == "y":
+        # Success message upon logout
+        print("Log out successful. Redirecting to login page...")
+
+        # Redirect to login page
+        login_page()
+
+    else:
+        # Display redirect message
+        print("Redirecting to the main menu page...")
+
+        # Redirect user to the main menu
+        main_menu()
+
+
 def sports_menu():
     """
     Sports menu is displayed here for adding, updating, deleting and
@@ -118,6 +176,8 @@ What would you like to do:
 2. Update an existing item.
 3. Delete an item.
 4. Display items.
+5. Logout.
+6. Exit the sports menu.
 """
     print(sports_banner)
 
@@ -137,9 +197,34 @@ What would you like to do:
     elif user_choice == 4:
         print("Displaying items in stock.")
         display_items()
+    elif user_choice == 5:
+        logout()
+    elif user_choice == 6:
+        exit_sports_menu()
     else:
+        # Display error message
         print("Invalid choice. Please enter a correct choice.")
+
+        # Redirect the user back to sports_menu
         sports_menu()
+
+
+def exit_program():
+    """
+    Smoothly terminates user program.
+    """
+    user_choice = input("Are you sure you want to exit? (Y/N): ")
+
+    if user_choice == "Y" or user_choice == "y":
+        print("Exiting the program...")
+        exit()
+
+    else:
+        # Display redirect message
+        print("Redirecting to the main menu...")
+
+        # Redirect user to the main menu
+        main_menu()
 
 
 def login_page():
@@ -231,13 +316,19 @@ Select from the main menu:
     # Validate user choice
     if user_choice == 1:
         registration_page()
+
     elif user_choice == 2:
         login_page()
+
     elif user_choice == 3:
-        sports_menu()
+        exit_program()
+
     else:
+        # Display error message
         print("Invalid choice. Please enter a correct choice.")
-        main()
+
+        # Redirect user to retry entering right choice
+        main_menu()
 
 
 def main():
@@ -255,6 +346,8 @@ def main():
 """
 
     print(welcome_banner)
+
+    # Go to main menu
     main_menu()
 
 
